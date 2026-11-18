@@ -6,7 +6,7 @@ LoopForge Local 内置两套工作流，源码位于 `local/`。为避免同一�
 
 | Edition | 仓库事实源 | 入口 | 维护方式 |
 | --- | --- | --- | --- |
-| Portable | `skills/` | CodeBuddy/Cursor/Claude/DeepSeek Harness/Hermes 使用 `/devflow`，Codex 使用 `$devflow`，Pi 使用 `/skill:devflow` | 修改 canonical Skill 和 adapter manifest |
+| Portable | `skills/` | CodeBuddy/Cursor/Claude/DeepSeek Harness/Hermes/Qoder 使用 `/devflow`，Codex 使用 `$devflow`，Pi 使用 `/skill:devflow` | 修改 canonical Skill 和 adapter manifest |
 | Classic（默认） | `.codebuddy/`、`.codex/`、`.cursor/`、`.claude/` | CodeBuddy/Cursor/Claude 使用 `/start-devflow`，Codex 使用 `$devflow-codex` | 以 `.codebuddy` 为参考行为；Cursor/Claude 由生成器产生 |
 
 表中路径均相对于 `local/`。安装器将对应资产安装到目标项目的宿主原生目录，
@@ -37,3 +37,8 @@ Hermes Agent 使用 `skills install hermes` 安装到项目的 `.hermes/skills/`
 `delegate_task` 创建独立子 Agent；当前会话缺少该工具时必须记录原因并降级为 `single-context`。
 如需独立查看状态、产物和审批，可选安装 `local/hermes-plugin/`；插件只调用项目内的
 `workflow_state.py`，不会覆盖 Hermes profile 配置。
+
+Qoder 使用 `skills install qoder` 安装到项目的 `.qoder/skills/`，并把两个 DevFlow 执行器写入
+`.qoder/agents/`。medium/large 阶段用 Qoder 的 `Agent` 工具创建独立子 Agent，并以宿主签发的
+执行者 ID 登记隔离审计字段。安装或改动执行器定义后需重开 Qoder 会话，Skill 与 Agent 类型
+列表才会刷新。

@@ -1,6 +1,6 @@
 # LoopForge Local
 
-LoopForge 的本地工作流组件，在 CodeBuddy、Codex、Cursor、Claude Code、Pi、DeepSeek Harness 或 Hermes Agent 中使用，无需启动平台。
+LoopForge 的本地工作流组件，在 CodeBuddy、Codex、Cursor、Claude Code、Pi、DeepSeek Harness、Hermes Agent 或 Qoder 中使用，无需启动平台。
 
 Local workflows for LoopForge, running inside an existing coding assistant without the platform server.
 
@@ -19,7 +19,7 @@ npx -y loopforge-cli@latest install claude
 npx -y loopforge-cli@latest status claude
 ```
 
-Start with `/start-devflow "<request>"` in Claude Code. Replace `claude` with `codebuddy`, `codex`, or `cursor` when installing for another host; use `skills install pi`, `skills install dsh`, or `skills install hermes` for Portable hosts. DSH uses `/devflow "<request>"` after installing the Skill, and the optional DSH plugin adds `/loopforge` task controls. Hermes loads the project skill after `hermes skills trust .`; its optional native plugin adds the same `/loopforge` controls.
+Start with `/start-devflow "<request>"` in Claude Code. Replace `claude` with `codebuddy`, `codex`, or `cursor` when installing for another host; use `skills install pi`, `skills install dsh`, `skills install hermes`, or `skills install qoder` for Portable hosts. DSH uses `/devflow "<request>"` after installing the Skill, and the optional DSH plugin adds `/loopforge` task controls. Hermes loads the project skill after `hermes skills trust .`; its optional native plugin adds the same `/loopforge` controls. Qoder installs the project Skill and the two DevFlow executors into `.qoder/`, and runs `/devflow "<request>"` after reopening the Qoder session.
 
 在 Claude Code 中通过 `/start-devflow "<需求>"` 启动。其他宿主的安装命令、入口及 Portable 用法见统一文档。
 
