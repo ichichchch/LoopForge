@@ -1,0 +1,9 @@
+schema_version: 1
+module_path: local_cli_tool
+title: LoopForge 本地工作流安装器（loopforge CLI）
+scope:
+    - local/
+source_files: []
+depends_on: []
+related_to:
+    - path: deploy_scripts

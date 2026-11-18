@@ -1,0 +1,9 @@
+schema_version: 1
+module_path: skills_catalog
+title: 外部工作流用量上报 Skill
+scope:
+    - skills/
+source_files: []
+depends_on: []
+related_to:
+    - path: backend_core

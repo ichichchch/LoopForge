@@ -1,0 +1,31 @@
+schema_version: 1
+module_path: ""
+title: LoopForge AgentFlow 平台根模块
+scope:
+    - README.md
+    - CONTRIBUTING.md
+    - AGENTS.md
+    - Makefile
+    - Dockerfile
+    - compose.yaml
+    - compose.dev.yaml
+    - .gitignore
+    - .dockerignore
+    - .env.example
+    - .gitattributes
+    - .gitleaks.toml
+    - CHANGELOG.md
+    - CODE_OF_CONDUCT.md
+    - CONTRIBUTING.zh-CN.md
+    - LICENSE
+    - README.zh-CN.md
+    - SECURITY.md
+    - SECURITY.zh-CN.md
+    - THIRD_PARTY_NOTICES.md
+    - design.md
+    - go.mod
+    - go.sum
+    - start.sh
+source_files: []
+depends_on: []
+related_to: []

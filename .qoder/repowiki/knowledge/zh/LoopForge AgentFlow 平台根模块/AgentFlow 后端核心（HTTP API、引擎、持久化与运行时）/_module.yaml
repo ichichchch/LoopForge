@@ -1,0 +1,12 @@
+schema_version: 1
+module_path: backend_core
+title: AgentFlow 后端核心（HTTP API、引擎、持久化与运行时）
+scope:
+    - internal/
+source_files: []
+depends_on: []
+related_to:
+    - path: chatbot_ui
+    - path: docs
+    - path: skills_catalog
+    - path: web_app

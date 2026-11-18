@@ -1,0 +1,8 @@
+schema_version: 1
+module_path: webtest_harness
+title: Web 前端 UI 测试夹具与覆盖率框架
+scope:
+    - webtest/
+source_files: []
+depends_on: []
+related_to: []

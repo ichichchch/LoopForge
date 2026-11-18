@@ -1,0 +1,10 @@
+schema_version: 1
+module_path: e2e_tests
+title: AgentFlow 平台端到端测试套件
+scope:
+    - e2e/
+source_files: []
+depends_on: []
+related_to:
+    - path: cmd_binaries
+    - path: migrations

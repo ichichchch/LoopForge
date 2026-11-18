@@ -1,0 +1,176 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: zh-CN
+branch: main
+nodes_managed: true
+exported_at: "2026-11-18T03:01:56Z"
+modules:
+    "":
+        dir_name: LoopForge AgentFlow 平台根模块
+        title: LoopForge AgentFlow 平台根模块
+        scope:
+            - README.md
+            - CONTRIBUTING.md
+            - AGENTS.md
+            - Makefile
+            - Dockerfile
+            - compose.yaml
+            - compose.dev.yaml
+            - .gitignore
+            - .dockerignore
+            - .env.example
+            - .gitattributes
+            - .gitleaks.toml
+            - CHANGELOG.md
+            - CODE_OF_CONDUCT.md
+            - CONTRIBUTING.zh-CN.md
+            - LICENSE
+            - README.zh-CN.md
+            - SECURITY.md
+            - SECURITY.zh-CN.md
+            - THIRD_PARTY_NOTICES.md
+            - design.md
+            - go.mod
+            - go.sum
+            - start.sh
+        source_files: []
+        children:
+            - backend_core
+            - chatbot_ui
+            - cmd_binaries
+            - deploy_scripts
+            - docs
+            - e2e_tests
+            - github_ci
+            - local_cli_tool
+            - migrations
+            - skills_catalog
+            - web_app
+            - webtest_harness
+        depends_on: []
+        related_to: []
+    backend_core:
+        dir_name: AgentFlow 后端核心（HTTP API、引擎、持久化与运行时）
+        title: AgentFlow 后端核心（HTTP API、引擎、持久化与运行时）
+        scope:
+            - internal/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: chatbot_ui
+            - path: docs
+            - path: skills_catalog
+            - path: web_app
+    chatbot_ui:
+        dir_name: AgentFlow 原生聊天 UI
+        title: AgentFlow 原生聊天 UI
+        scope:
+            - chatbot/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend_core
+    cmd_binaries:
+        dir_name: LoopForge 可执行入口与守护进程
+        title: LoopForge 可执行入口与守护进程
+        scope:
+            - cmd/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: e2e_tests
+    deploy_scripts:
+        dir_name: 部署脚本与嵌入式安装器
+        title: 部署脚本与嵌入式安装器
+        scope:
+            - deploy/
+            - scripts/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: local_cli_tool
+            - path: migrations
+    docs:
+        dir_name: LoopForge 文档与 OpenAPI 契约
+        title: LoopForge 文档与 OpenAPI 契约
+        scope:
+            - docs/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend_core
+    e2e_tests:
+        dir_name: AgentFlow 平台端到端测试套件
+        title: AgentFlow 平台端到端测试套件
+        scope:
+            - e2e/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: cmd_binaries
+            - path: migrations
+    github_ci:
+        dir_name: GitHub Actions CI_CD 与仓库元数据
+        title: GitHub Actions CI/CD 与仓库元数据
+        scope:
+            - .github/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
+    local_cli_tool:
+        dir_name: LoopForge 本地工作流安装器（loopforge CLI）
+        title: LoopForge 本地工作流安装器（loopforge CLI）
+        scope:
+            - local/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: deploy_scripts
+    migrations:
+        dir_name: 数据库迁移与种子数据
+        title: 数据库迁移与种子数据
+        scope:
+            - migrations/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: deploy_scripts
+            - path: e2e_tests
+    skills_catalog:
+        dir_name: 外部工作流用量上报 Skill
+        title: 外部工作流用量上报 Skill
+        scope:
+            - skills/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend_core
+    web_app:
+        dir_name: AgentFlow Web 前端应用与资源
+        title: AgentFlow Web 前端应用与资源
+        scope:
+            - web/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to:
+            - path: backend_core
+    webtest_harness:
+        dir_name: Web 前端 UI 测试夹具与覆盖率框架
+        title: Web 前端 UI 测试夹具与覆盖率框架
+        scope:
+            - webtest/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
