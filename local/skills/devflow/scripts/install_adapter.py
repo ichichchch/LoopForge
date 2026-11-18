@@ -13,12 +13,34 @@ MANAGED_SKILLS_FILE = ".devflow-managed-skills.json"
 SKILLS_MANIFEST = SKILL_ROOT.parent / "manifest.json"
 
 
+def is_plain_scalar(text: str) -> bool:
+    """Plain YAML scalars keep host frontmatter readable; only risky values are quoted."""
+    if not text or text.strip() != text:
+        return False
+    if text[0] in "-?:,[]{}#&*!|>'\"%@`":
+        return False
+    if ": " in text or " #" in text or text.endswith(":"):
+        return False
+    if text.lower() in {"true", "false", "null", "yes", "no", "on", "off", "~"}:
+        return False
+    try:
+        float(text)
+        return False
+    except ValueError:
+        return True
+
+
 def yaml_value(value: Any) -> str:
     if isinstance(value, bool):
         return "true" if value else "false"
     if isinstance(value, (int, float)):
         return str(value)
-    return json.dumps(str(value), ensure_ascii=False)
+    if isinstance(value, list):
+        return json.dumps(value, ensure_ascii=False)
+    text = str(value)
+    if is_plain_scalar(text):
+        return text
+    return json.dumps(text, ensure_ascii=False)
 
 
 def load_config(adapter_id: str) -> Dict[str, Any]:

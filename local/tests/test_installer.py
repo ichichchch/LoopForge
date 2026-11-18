@@ -196,6 +196,19 @@ class InstallerTests(unittest.TestCase):
             with self.assertRaises(DevFlowError):
                 apply_install(project, "hermes", "classic")
 
+    def test_qoder_installs_portable_skills_and_agents_and_rejects_classic(self):
+        with tempfile.TemporaryDirectory() as td:
+            project = Path(td)
+            installed, _unchanged = apply_install(project, "qoder", "portable")
+            self.assertGreater(installed, 0)
+            self.assertTrue((project / ".qoder/skills/devflow/SKILL.md").is_file())
+            self.assertTrue((project / ".qoder/skills/manifest.json").is_file())
+            self.assertTrue((project / ".qoder/skills/devflow/adapters/qoder/manifest.json").is_file())
+            self.assertTrue((project / ".qoder/agents/devflow-stage-executor.md").is_file())
+            self.assertTrue((project / ".qoder/agents/devflow-research-helper.md").is_file())
+            with self.assertRaises(DevFlowError):
+                apply_install(project, "qoder", "classic")
+
     def test_editions_and_plan_make_the_split_visible_without_writing(self):
         output = StringIO()
         with redirect_stdout(output):
